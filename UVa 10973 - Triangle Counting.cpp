@@ -1,11 +1,11 @@
 // ITNOG
-// O(n.m) Graph by lnxdx, Mashhad, 2018
+// O(n.m) brute force using 'adjacency matrix' and 'edge list' by lnxdx, Mashhad, 2018
 
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
 const int N = 3003;
-const int M = 1e6;
+const int M = 1e6; // Number of edges is less than 10^6.
 
 bool adj[N][N];
 int edg[M][2];
