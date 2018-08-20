@@ -27,9 +27,9 @@ int main()
 		}
 
 
-		for (int j = 0; j < p[0].size(); j++) // initial values (base cases)
-			if (m - p[0][j] >= 0) // to prevent array index out of bound
-				dp[0][p[0][j]] = true; // using first garment g = 0
+		for (int j = 0; j < p[0].size(); j++)
+			if (m - p[0][j] >= 0)
+				dp[0][p[0][j]] = true;
 		for (int i = 1;i < c;i++)
 			for (int x = 0; x <= m; x++)
 				for (int j = 0; j < p[i].size(); j++)
