@@ -17,7 +17,7 @@ int main()
 
 		int m, c;
 		scanf("%d%d", &m, &c);
-		for (int i = 0;i < c;i++)
+		for (int i = 1;i <= c;i++)
 		{
 			int k;
 			scanf("%d", &k);
@@ -26,25 +26,22 @@ int main()
 				scanf("%d", &p[i][j]);
 		}
 
-
-		for (int j = 0; j < p[0].size(); j++)
-			if (m - p[0][j] >= 0)
-				dp[0][p[0][j]] = true;
-		for (int i = 1;i < c;i++)
-			for (int x = 0; x <= m; x++)
-				for (int j = 0; j < p[i].size(); j++)
-					if (x - p[i][j] >= 0)
-						dp[i][x] |= dp[i - 1][x - p[i][j]];
+		dp[0][0] = true;
+		for (int x = 0; x < m; x++)
+			for (int i = 0;i < c;i++)
+				if (dp[i][x])
+					for (int j = 0; j < p[i + 1].size(); j++)
+						dp[i + 1][x + p[i + 1][j]] = true;
 
 		bool ans = false;
 		for (int x = m; x >= 0; x--)
-			if (dp[c - 1][x])
+			if (dp[c][x])
 			{
 				printf("%d\n", x);
 				ans = true;
 				break;
 			}
-		if(!ans)
+		if (!ans)
 			printf("no solution\n");
 	}
 }
